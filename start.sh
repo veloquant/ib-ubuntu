@@ -3,7 +3,7 @@ set -e
 
 Xvfb $DISPLAY -ac -screen 0 1024x768x24 &
 
-LATEST_GATEWAY_VER=`find Jts/ibgateway/ -maxdepth 1 -type d | grep -oP '\d+$' | sort -d | tail -1`
+LATEST_GATEWAY_VER=`find Jts/ibgateway/ -maxdepth 1 -type d | grep -oP '\d+$' | sort -n | tail -1`
 DOCKER_HOST_IP=`/sbin/ip route|awk '/default/ { print $3 }'`
 echo '[IBGateway]' > ~/Jts/jts.ini
 echo "TrustedIPs=127.0.0.1,${DOCKER_HOST_IP}" >> ~/Jts/jts.ini
