@@ -4,7 +4,7 @@ ARG IBC_VERSION=3.8.4-beta.2
 
 RUN apt-get update -yqq && \
     apt-get install --no-install-recommends -yqq \
-        unzip less wget ca-certificates xvfb xfonts-base x11vnc telnet iproute2 && \
+        unzip less wget ca-certificates xvfb xfonts-base x11vnc telnet iproute2 socat && \
     apt-get -y autoclean
 
 WORKDIR /opt/ibc
@@ -33,8 +33,8 @@ COPY start.sh .
 ENV IB_USER edemo
 ENV IB_PW demouser
 ENV DISPLAY :1
-EXPOSE 5900
-EXPOSE 4000-4002
+# Expose ports for VNC and for IB Gateway. 44001 is used as a workaround - see start.sh
+EXPOSE 4001 44001 5900
 ENTRYPOINT bash start.sh
 
 LABEL com.interactivebrokers.ibcalpha.version $IBC_VERSION
