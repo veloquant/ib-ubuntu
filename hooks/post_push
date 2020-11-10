@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+IBC_VERSION=`docker inspect $IMAGE_NAME -f '{{index (.ContainerConfig.Labels) "com.interactivebrokers.ibcalpha.version"}}'`
+
+EXPECTED_TAG=ibc-${IBC_VERSION}
+if [ "$EXPECTED_TAG" != "$DOCKER_TAG" ] ; then
+    docker tag $IMAGE_NAME ${DOCKER_REPO}:${EXPECTED_TAG}
+    docker push ${DOCKER_REPO}:${EXPECTED_TAG}
+fi
