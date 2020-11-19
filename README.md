@@ -4,7 +4,7 @@ A Docker container encapsulating Interactive Brokers client and gateway.
 The client and gateway both run unattended, and the client's GUI is
 also made available over VNC.
 
-This is adapted from the recipe provided [here](https://github.com/roblav96/headless-ib-gateway-installation-ubuntu-server]).
+This is adapted from the recipe by Robert Laverty provided [here](https://github.com/roblav96/headless-ib-gateway-installation-ubuntu-server).
 
 ## Building
 
