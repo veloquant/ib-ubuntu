@@ -23,10 +23,9 @@ A container built from this repository is available [on Docker-Hub](https://hub.
 Ports being exposed:
 
 * 44001: Interactive Brokers gateway. Available from any source address
-* 4001: Same as 4001 above, but is only available if IB Client is set-up to listen
-on addresses apart from _localhost_. Even if that is configured, only connections
-othern than from
-the Docker host would require explicit approval on the IBC GUI.
+* 4001: Same as 44001 above, but is only available if IB Client is set-up to listen
+on addresses apart from _localhost_. Even if that is configured, connections
+other than from the Docker host would require explicit approval on the IBC GUI.
 * 5900: VNC port  
 
 ## Monitoring
